@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Src\Infrastructure\{{ module }}\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class {{ name }} extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [
+            // Add your validation rules here
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            // Add your messages here
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            // Add your attributes here
+        ];
+    }
+}

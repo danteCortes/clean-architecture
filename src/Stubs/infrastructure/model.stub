@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Src\Infrastructure\{{ module }}\Persistence\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class {{ name }} extends Model
+{
+    protected $table = '{{ table }}';
+
+    protected $fillable = [
+        // Add your fields here
+    ];
+
+    protected $casts = [
+        //
+    ];
+}

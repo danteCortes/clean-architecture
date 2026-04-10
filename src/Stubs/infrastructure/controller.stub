@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Src\Infrastructure\{{ module }}\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Src\Infrastructure\{{ module }}\Http\Requests\Create{{ module }}Request;
+use App\Src\Infrastructure\{{ module }}\Http\Requests\Update{{ module }}Request;
+
+class {{ module }}Controller
+{
+    public function __construct(
+        private readonly {{ module }}Service $service,
+    ) {}
+
+    public function index(Request $request): JsonResponse
+    {
+        return $this->service->index($request);
+    }
+
+    public function store(Create{{ module }}Request $request): JsonResponse
+    {
+        return $this->service->store($request);
+    }
+
+    public function show(string $id): JsonResponse
+    {
+        return $this->service->store($id);
+    }
+
+    public function update(Update{{ module }}Request $request): JsonResponse
+    {
+        return $this->service->update($request);
+    }
+
+    public function delete(string $id): JsonResponse
+    {
+        return $this->service->delete($id);
+    }
+}

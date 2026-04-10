@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Src\Domain\{{ module }}\Repositories;
+
+use App\Src\Domain\{{ module }}\Domain\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\Domain\ValueObjects\{{ module }}Id;
+
+interface {{ repository }}
+{
+    public function save({{ module }} $entity): {{ module }};
+
+    public function findById({{ module }}Id $id): ?{{ module }};
+}

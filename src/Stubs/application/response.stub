@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Src\Application\{{ module }}\Responses;
+
+final class {{ name }}
+{
+    private function __construct(
+        public readonly string $value
+    ){}
+
+    public static function create(
+        string $value
+    ): self
+    {
+        return new self(
+            $value
+        );
+    }
+}

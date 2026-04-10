@@ -1,0 +1,30 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Src\Domain\{{ module }}\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\Repositories\{{ module }}Repository;
+use App\Src\Application\{{ module }}\DTOs\{{ module }}DTO;
+use App\Src\Application\{{ module }}\Responses\{{ module }}Response;
+
+class {{ name }}
+{
+    private function __construct(
+        private readonly {{ module }}Repository $repository,
+    ) {}
+
+    public static function create({{ module }}Repository $repository): self
+    {
+        return new self($repository);
+    }
+
+    public function execute(
+        {{ module }}DTO $dto
+    ): {{ module }}Response {
+        $entity = $this->repository->save($dto);
+
+        return {{ module }}Response::create(
+            $entity->value
+        );
+    }
+}

@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Src\Domain\{{ module }}\Entities;
+
+class {{ entity }}
+{
+    private function __construct(
+        // Add your properties here
+    ) {}
+
+    public static function create(
+        // Add your parameters here
+    ): self {
+        return new self(
+            // Add your arguments here
+        );
+    }
+
+    // getters
+}

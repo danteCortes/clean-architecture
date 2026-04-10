@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Src\Domain\{{ module }}\Factories;
+
+use App\Src\Domain\{{ module }}\Entities\{{ entity }};
+
+class {{ entity }}Factory
+{
+    public static function fromPrimitives(
+
+    ): {{ entity }}
+    {
+        return {{ entity }}::create(
+
+        );
+    }
+}

@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Src\Domain\{{ module }}\Enums;
+
+enum {{ enum }}: String
+{
+    case YES = 'SI';
+    case NO = 'NO';
+    
+    public function isPositive(): bool
+    {
+        return $this === self::YES;
+    }
+
+    public static function fromString(string $value): self
+    {
+        return match ($value) {
+            'SI' => self::YES,
+            'NO' => self::NO,
+            default => InvalidArgumentException(
+                "Invalid mode: {$value}. ".
+                "Allowed values: Si, NO."
+            )
+        };
+    }
+}

@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Src\Infrastructure\{{ module }}\Providers;
+
+use App\Src\Domain\{{ module }}\Repositories\{{ module }}Repository;
+use App\Src\Application\{{ module }}\UseCases\Create{{ module }}UseCase;
+use App\Src\Application\{{ module }}\UseCases\Update{{ module }}UseCase;
+use App\Src\Application\{{ module }}\UseCases\Show{{ module }}UseCase;
+use App\Src\Application\{{ module }}\UseCases\Delete{{ module }}UseCase;
+use App\Src\Infrastructure\{{ module }}\Persistence\Implements\Implement{{ module }}Repository;
+use Illuminate\Support\ServiceProvider;
+
+class {{ name }} extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->bind({{ module }}Repository::class, Implement{{ module }}Repository::class);
+        $this->app->bind(Create{{ module }}UseCase::class, function($app){
+            return Create{{ module }}UseCase::create($app->make({{ module }}Repository::class));
+        });
+        $this->app->bind(Update{{ module }}UseCase::class, function($app){
+            return Update{{ module }}UseCase::create($app->make({{ module }}Repository::class));
+        });
+        $this->app->bind(Show{{ module }}UseCase::class, function($app){
+            return Show{{ module }}UseCase::create($app->make({{ module }}Repository::class));
+        });
+        $this->app->bind(Delete{{ module }}UseCase::class, function($app){
+            return Delete{{ module }}UseCase::create($app->make({{ module }}Repository::class));
+        });
+    }
+
+    public function boot(): void
+    {
+
+    }
+}

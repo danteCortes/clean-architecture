@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Src\Infrastructure\{{ module }}\Persistence\Implements;
+
+use App\Src\Domain\{{ module }}\Domain\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\Domain\ValueObjects\{{ module }}Id;
+use App\Src\Domain\{{ module }}\Domain\Repositories\{{ module }}Repository;
+use App\Src\Infrastructure\{{ module }}\Persistence\Mappers\{{ module }}Mapper;
+use App\Src\Infrastructure\{{ module }}\Persistence\Models\{{ module }}Model;
+
+class {{ name }} implements {{ module }}Repository
+{
+    public function save({{ module }} $entity): {{ module }}
+    {
+        $model = {{ module }}Mapper::toModel({{ module }});
+        $model->save();
+
+        return {{ module }}Mapper::toEntity($model);
+    }
+
+    public function findById({{ module }}Id $id): ?{{ module }}
+    {
+        $model = {{ module }}Model::find($id->value());
+        
+        return $model ? {{ module }}Mapper::toEntity($model) : null;
+    }
+}

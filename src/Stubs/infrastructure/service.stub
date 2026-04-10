@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Src\Infrastructure\{{ module }}\Http\Services;
+
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use App\Src\Application\{{ module }}\UseCases\Create{{ module }}UseCase;
+use App\Src\Application\{{ module }}\UseCases\Update{{ module }}UseCase;
+use App\Src\Application\{{ module }}\UseCases\Show{{ module }}UseCase;
+use App\Src\Application\{{ module }}\UseCases\Delete{{ module }}UseCase;
+use App\Src\Infrastructure\{{ module }}\Http\Requests\Create{{ module }}Request;
+use App\Src\Infrastructure\{{ module }}\Http\Requests\Update{{ module }}Request;
+
+class {{ name }}
+{
+    public function __construct(
+        private readonly Create{{ module }}UseCase $createUseCase,
+        private readonly Update{{ module }}UseCase $updateUseCase,
+        private readonly Show{{ module }}UseCase $showUseCase,
+        private readonly Delete{{ module }}UseCase $deleteUseCase,
+    ) {}
+
+    public function index(Request $request): JsonResponse
+    {
+        return response()->json($request);
+    }
+
+    public function store(Create{{ module }}Request $request): JsonResponse
+    {
+        $response = $this->createUseCase->execute(
+
+        );
+
+        return response()->json($response, 201);
+    }
+
+    public function show(string $id): JsonResponse
+    {
+        $response = $this->showUseCase->execute($id);
+
+        return response()->json($response);
+    }
+
+    public function update(Update{{ module }}Request $request): JsonResponse
+    {
+        $response = $this->updateUseCase->execute(
+
+        );
+
+        return response()->json($response);
+    }
+
+    public function delete(string $id): JsonResponse
+    {
+        $response = $this->deleteUseCase->execute($id);
+
+        return response()->json($response);
+    }
+}
