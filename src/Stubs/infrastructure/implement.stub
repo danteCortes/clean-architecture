@@ -2,9 +2,9 @@
 
 namespace App\Src\Infrastructure\{{ module }}\Persistence\Implements;
 
-use App\Src\Domain\{{ module }}\Domain\Entities\{{ module }};
-use App\Src\Domain\{{ module }}\Domain\ValueObjects\{{ module }}Id;
-use App\Src\Domain\{{ module }}\Domain\Repositories\{{ module }}Repository;
+use App\Src\Domain\{{ module }}\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\ValueObjects\{{ module }}Id;
+use App\Src\Domain\{{ module }}\Repositories\{{ module }}Repository;
 use App\Src\Infrastructure\{{ module }}\Persistence\Mappers\{{ module }}Mapper;
 use App\Src\Infrastructure\{{ module }}\Persistence\Models\{{ module }}Model;
 
@@ -12,7 +12,7 @@ class {{ name }} implements {{ module }}Repository
 {
     public function save({{ module }} $entity): {{ module }}
     {
-        $model = {{ module }}Mapper::toModel({{ module }});
+        $model = {{ module }}Mapper::toModel($entity);
         $model->save();
 
         return {{ module }}Mapper::toEntity($model);

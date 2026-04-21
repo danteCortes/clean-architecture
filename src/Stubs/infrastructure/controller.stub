@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Src\Infrastructure\{{ module }}\Http\Requests\Create{{ module }}Request;
 use App\Src\Infrastructure\{{ module }}\Http\Requests\Update{{ module }}Request;
+use App\Src\Infrastructure\{{ module }}\Http\Services\{{ module }}Service;
 
 class {{ module }}Controller
 {

@@ -19,7 +19,7 @@ enum {{ enum }}: String
             'NO' => self::NO,
             default => InvalidArgumentException(
                 "Invalid mode: {$value}. ".
-                "Allowed values: Si, NO."
+                "Allowed values: SI, NO."
             )
         };
     }

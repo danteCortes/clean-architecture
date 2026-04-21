@@ -2,16 +2,17 @@
 
 namespace App\Src\Domain\{{ module }}\Factories;
 
-use App\Src\Domain\{{ module }}\Entities\{{ entity }};
+use App\Src\Domain\{{ module }}\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\ValueObjects\{{ module }}Id;
 
-class {{ entity }}Factory
+class {{ name }}
 {
     public static function fromPrimitives(
-
-    ): {{ entity }}
+        ?string $id
+    ): {{ module }}
     {
-        return {{ entity }}::create(
-
+        return {{ module }}::create(
+            $id ? {{ module }}Id::create($id) : null
         );
     }
 }

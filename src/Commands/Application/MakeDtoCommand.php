@@ -41,7 +41,7 @@ class MakeDtoCommand extends Command
 
         $this->files->put($path, $content);
         
-        $this->components->twoColumnDetail("<fg=green>Entity</>", $path);
+        $this->components->twoColumnDetail("<fg=green>DTO</>", $path);
         $this->newLine();
         $this->info("✅ Response [{$name}] created successfully in module [{$module}].");
 

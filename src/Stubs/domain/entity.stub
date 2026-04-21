@@ -2,19 +2,24 @@
 
 namespace App\Src\Domain\{{ module }}\Entities;
 
+use App\Src\Domain\{{ module }}\ValueObjects\{{ module }}Id;
+
 class {{ entity }}
 {
     private function __construct(
-        // Add your properties here
+        private readonly ?{{ module }}Id $id
     ) {}
 
     public static function create(
-        // Add your parameters here
+        ?{{ module }}Id $id
     ): self {
         return new self(
-            // Add your arguments here
+            $id
         );
     }
 
-    // getters
+    public function id(): ?{{ module }}Id
+    {
+        return $this->id;
+    }
 }

@@ -3,19 +3,21 @@
 namespace App\Src\Infrastructure\{{ module }}\Persistence\Mappers;
 
 use App\Src\Domain\{{ module }}\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\Factories\{{ module }}Factory;
 use App\Src\Infrastructure\{{ module }}\Persistence\Models\{{ module }}Model;
 
 final class {{ name }}
 {
     public static function toModel({{ module }} $entity): {{ module }}Model
     {
-        return {{ module }}Model(
+        $model = {{ module }}Model;
 
-        );
+        return $model;
     }
+
     public static function toEntity({{ module }}Model $model): {{ module }}
     {
-        return {{ module }}::create(
+        return {{ module }}Factory::fromPrimitives(
 
         );
     }

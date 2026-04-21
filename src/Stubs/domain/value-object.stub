@@ -9,11 +9,11 @@ final class {{ name }}
     private function __construct(private readonly string $value){}
 
     public static function create(string $value): self {
-        $this->validate($value);
+        self::validate($value);
         return new self($value);
     }
 
-    private function validate(string $value): void
+    private static function validate(string $value): void
     {
         if (empty($value)) {
             throw new InvalidArgumentException('{{ name }} cannot be empty');
@@ -32,6 +32,8 @@ final class {{ name }}
 
     public function __toString(): string
     {
-        return $this->value;
+        return '{
+            "value": "' . $this->value . '"
+        }';
     }
 }

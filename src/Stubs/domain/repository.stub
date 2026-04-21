@@ -2,8 +2,8 @@
 
 namespace App\Src\Domain\{{ module }}\Repositories;
 
-use App\Src\Domain\{{ module }}\Domain\Entities\{{ module }};
-use App\Src\Domain\{{ module }}\Domain\ValueObjects\{{ module }}Id;
+use App\Src\Domain\{{ module }}\Entities\{{ module }};
+use App\Src\Domain\{{ module }}\ValueObjects\{{ module }}Id;
 
 interface {{ repository }}
 {
